@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyz.keshe.mapper.PicMapper">
-  <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.Pic">
+  
+  <insert id="insert" parameterType="com.xyz.keshe.domain.Pic">
+		INSERT INTO pic VALUES (DEFAULT, #{mId,jdbcType=INTEGER}, #{pUrl,jdbcType=VARCHAR},0)
+	</insert>
+	
+	<select id="search" parameterType="String" resultType="String">
+		<!-- SELECT p_url FROM pic LEFT JOIN picmenu ON pic.m_id=picmenu.m_id WHERE m_two LIKE CONCAT('%',#{name,jdbcType=VARCHAR},'%') OR m_one LIKE CONCAT('%',#{name,jdbcType=VARCHAR},'%') -->
+		<!-- SELECT p_url FROM pic LEFT JOIN picmenu ON pic.m_id=picmenu.m_id WHERE m_two LIKE '%${_parameter}%' OR m_one LIKE '%${_parameter}%' -->
+		SELECT p_url FROM pic LEFT JOIN picmenu ON pic.m_id=picmenu.m_id WHERE m_two LIKE #{pName} OR m_one LIKE #{pName}
+	</select> 
+	
+	<select id="sort" resultType="String">
+		SELECT p_url FROM pic ORDER BY p_download DESC
+	</select>
+  
+  <!-- <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.Pic">
     <id column="p_id" jdbcType="INTEGER" property="pId" />
     <result column="m_id" jdbcType="INTEGER" property="mId" />
     <result column="p_url" jdbcType="VARCHAR" property="pUrl" />
@@ -192,5 +207,5 @@
       p_url = #{pUrl,jdbcType=VARCHAR},
       p_download = #{pDownload,jdbcType=INTEGER}
     where p_id = #{pId,jdbcType=INTEGER}
-  </update>
+  </update> -->
 </mapper>

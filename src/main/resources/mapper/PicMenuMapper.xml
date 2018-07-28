@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyz.keshe.mapper.PicMenuMapper">
-  <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.PicMenu">
+  <!-- <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.PicMenu">
     <id column="m_id" jdbcType="INTEGER" property="mId" />
     <result column="m_two" jdbcType="VARCHAR" property="mTwo" />
     <result column="m_one" jdbcType="VARCHAR" property="mOne" />
@@ -177,5 +177,5 @@
     set m_two = #{mTwo,jdbcType=VARCHAR},
       m_one = #{mOne,jdbcType=VARCHAR}
     where m_id = #{mId,jdbcType=INTEGER}
-  </update>
+  </update> -->
 </mapper>

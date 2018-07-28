@@ -8,8 +8,18 @@ public class Pic {
     private String pUrl;
 
     private Integer pDownload;
+    
+    private String pName;
 
-    public Integer getpId() {
+    public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public Integer getpId() {
         return pId;
     }
 

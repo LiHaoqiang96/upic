@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyz.keshe.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.User">
+  
+    <select id="selectAll" resultType="com.xyz.keshe.domain.User">
+		select * from user
+	</select>
+	<select id="selectuser" parameterType="com.xyz.keshe.domain.User" resultType="com.xyz.keshe.domain.User">
+		SELECT *  FROM USER  WHERE u_num=#{uNum}  AND u_pwd=#{uPwd}
+	</select>
+	<insert id="insertUser" parameterType="com.xyz.keshe.domain.User"  >
+		INSERT INTO USER (u_name,u_num,u_mail,u_pwd) VALUE(#{uName},#{uNum},#{uMail},#{uPwd})
+	</insert>
+	<select id="selectusers" parameterType="com.xyz.keshe.domain.User" resultType="com.xyz.keshe.domain.User">
+		SELECT *  FROM USER  WHERE  u_name=#{uName} AND u_num=#{uNum} AND u_mail=#{uMail}
+	</select>
+  
+  <!-- <resultMap id="BaseResultMap" type="com.xyz.keshe.domain.User">
     <id column="u_id" jdbcType="INTEGER" property="uId" />
     <result column="u_name" jdbcType="VARCHAR" property="uName" />
     <result column="u_num" jdbcType="VARCHAR" property="uNum" />
@@ -207,5 +221,5 @@
       u_pwd = #{uPwd,jdbcType=VARCHAR},
       u_mail = #{uMail,jdbcType=VARCHAR}
     where u_id = #{uId,jdbcType=INTEGER}
-  </update>
+  </update> -->
 </mapper>

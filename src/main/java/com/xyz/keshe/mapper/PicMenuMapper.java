@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PicMenuMapper {
-    long countByExample(PicMenuExample example);
+    /*long countByExample(PicMenuExample example);
 
     int deleteByExample(PicMenuExample example);
 
@@ -26,5 +26,5 @@ public interface PicMenuMapper {
 
     int updateByPrimaryKeySelective(PicMenu record);
 
-    int updateByPrimaryKey(PicMenu record);
+    int updateByPrimaryKey(PicMenu record);*/
 }

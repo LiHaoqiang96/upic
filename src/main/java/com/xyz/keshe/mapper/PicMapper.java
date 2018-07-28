@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PicMapper {
-    long countByExample(PicExample example);
+    /*long countByExample(PicExample example);
 
     int deleteByExample(PicExample example);
 
@@ -26,5 +26,12 @@ public interface PicMapper {
 
     int updateByPrimaryKeySelective(Pic record);
 
-    int updateByPrimaryKey(Pic record);
+    int updateByPrimaryKey(Pic record);*/
+    
+	int insert(int mId,String pUrl);
+	
+	List<String> search(String pName);
+	
+	List<String> sort();
+    
 }
